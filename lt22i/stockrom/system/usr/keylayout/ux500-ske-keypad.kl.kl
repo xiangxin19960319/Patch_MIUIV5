@@ -1,4 +1,4 @@
-# this corresponds to kernel/arch/arm/mach-ux500/keypad-kumquat.c
+# this corresponds to kernel/arch/arm/mach-ux500/keypad-nypon.c
 #
 # defines for values are in frameworks/base/include/ui/KeycodeLabels.h
 
