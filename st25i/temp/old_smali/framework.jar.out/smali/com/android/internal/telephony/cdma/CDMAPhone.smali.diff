@@ -1,0 +1,41 @@
+*** ./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-10-21 03:28:55.455586939 +0800
+--- /home/xiangxin/patchrom/MIUIV5/st25i/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-10-21 03:30:43.647586350 +0800
+***************
+*** 1103,1108 ****
+--- 1103,1112 ----
+  # virtual methods
+  .method public acceptCall()V
+      .locals 1
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
++ 
+      .annotation system Ldalvik/annotation/Throws;
+          value = {
+              Lcom/android/internal/telephony/CallStateException;
+***************
+*** 1110,1115 ****
+--- 1114,1123 ----
+      .end annotation
+  
+      .prologue
++     const/16 v0, 0xf
++ 
++     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->removeMessages(I)V
++ 
+      iget-object v0, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mCT:Lcom/android/internal/telephony/cdma/CdmaCallTracker;
+  
+      invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/CdmaCallTracker;->acceptCall()V
+***************
+*** 2934,2939 ****
+--- 2942,2951 ----
+  
+      iput-object v3, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mMeid:Ljava/lang/String;
+  
++     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->sendDeviceIdReadyBroadcast()V
++ 
++     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->setDeviceIdSystemProperty()V
++ 
+      goto :goto_0
+  
+      .end local v0           #ar:Landroid/os/AsyncResult;

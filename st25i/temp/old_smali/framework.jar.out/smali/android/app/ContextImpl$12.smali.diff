@@ -1,0 +1,43 @@
+*** ./smali/android/app/ContextImpl$12.smali	2013-10-21 03:28:14.323587162 +0800
+--- /home/xiangxin/patchrom/MIUIV5/st25i/temp/new_smali/framework.jar.out/./smali/android/app/ContextImpl$12.smali	2013-10-21 03:29:59.163586592 +0800
+***************
+*** 29,37 ****
+  .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+      .locals 3
+      .parameter "ctx"
+  
+      .prologue
+!     new-instance v0, Landroid/app/DownloadManager;
+  
+      invoke-virtual {p1}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
+  
+--- 29,40 ----
+  .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
+      .locals 3
+      .parameter "ctx"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
+  
+      .prologue
+!     new-instance v0, Landroid/app/MiuiDownloadManager;
+  
+      invoke-virtual {p1}, Landroid/app/ContextImpl;->getContentResolver()Landroid/content/ContentResolver;
+  
+***************
+*** 41,47 ****
+  
+      move-result-object v2
+  
+!     invoke-direct {v0, v1, v2}, Landroid/app/DownloadManager;-><init>(Landroid/content/ContentResolver;Ljava/lang/String;)V
+  
+      return-object v0
+  .end method
+--- 44,50 ----
+  
+      move-result-object v2
+  
+!     invoke-direct {v0, v1, v2}, Landroid/app/MiuiDownloadManager;-><init>(Landroid/content/ContentResolver;Ljava/lang/String;)V
+  
+      return-object v0
+  .end method

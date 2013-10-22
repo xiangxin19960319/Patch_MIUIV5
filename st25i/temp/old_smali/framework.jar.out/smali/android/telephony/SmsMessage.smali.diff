@@ -1,0 +1,20 @@
+*** ./smali/android/telephony/SmsMessage.smali	2013-10-21 03:28:36.927587039 +0800
+--- /home/xiangxin/patchrom/MIUIV5/st25i/temp/new_smali/framework.jar.out/./smali/android/telephony/SmsMessage.smali	2013-10-21 03:30:22.411586466 +0800
+***************
+*** 825,830 ****
+--- 825,839 ----
+      return-object v0
+  .end method
+  
++ .method public getMessageSimId()I
++     .locals 1
++ 
++     .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ .end method
++ 
+  .method public getOriginatingAddress()Ljava/lang/String;
+      .locals 1
+  

@@ -1,0 +1,26 @@
+*** ./smali/android/database/CursorWindow.smali	2013-10-21 03:27:54.767587269 +0800
+--- /home/xiangxin/patchrom/MIUIV5/st25i/temp/new_smali/framework.jar.out/./smali/android/database/CursorWindow.smali	2013-10-21 03:29:36.559586715 +0800
+***************
+*** 635,640 ****
+--- 635,644 ----
+      :cond_0
+      sget-object v0, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
+  
++     invoke-static {v0, p1}, Landroid/database/CursorWindow$Injector;->delQuota(Landroid/util/SparseIntArray;I)V
++ 
++     sget-object v0, Landroid/database/CursorWindow;->sWindowToPidMap:Landroid/util/SparseIntArray;
++ 
+      invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->delete(I)V
+  
+      monitor-exit v1
+***************
+*** 703,708 ****
+--- 707,714 ----
+      invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+  
+      :cond_0
++     invoke-static {p1}, Landroid/database/CursorWindow$Injector;->addQuota(I)V
++ 
+      monitor-exit v1
+  
+      return-void
